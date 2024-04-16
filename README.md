@@ -1,21 +1,22 @@
 # RSA-alogrithm-in-C
 //This was done in 2/3 sem so any mistakes do ping me thank youu
-#include<stdio.h>  
-#include<stdlib.h>  
-#include<math.h>  
-#include<string.h>  
+
+    #include<stdio.h>  
+    #include<stdlib.h>  
+    #include<math.h>  
+    #include<string.h>  
   
-long int p, q, n, t, flag, e[100], d[100], temp[100], j, m[100], en[100], i;  
-char msg[100];  
+    long int p, q, n, t, flag, e[100], d[100], temp[100], j, m[100], en[100], i;  
+    char msg[100];  
   
-int prime(long int);  
-void ce();  
-long int cd(long int);  
-void encrypt();  
-void decrypt();  
+    int prime(long int);  
+    void ce();  
+    long int cd(long int);  
+    void encrypt();  
+    void decrypt();  
   
-int main()  
-{  
+    int main()  
+    {  
     printf("Enter the first Prime number: ");  
     scanf("%ld", &p);  
     flag = prime(p);  
@@ -52,12 +53,12 @@ int main()
     decrypt();  
   
     return 0;  
-}  
+    }  
   
-int prime(long int pr)  
-{  
-    int i;  
-    if (pr == 1)  
+    int prime(long int pr)  
+    {  
+      int i;  
+      if (pr == 1)  
         return 0;  
   
     for (i = 2; i <= sqrt(pr); i++)  
@@ -65,14 +66,14 @@ int prime(long int pr)
         if (pr % i == 0)  
             return 0;  
     }  
-    return 1;  
-}  
+      return 1;  
+    }  
   
-void ce()  
-{  
-    int k;  
-    k = 0;  
-    for (i = 2; i < t; i++)  
+    void ce()  
+    {  
+      int k;  
+      k = 0;  
+      for (i = 2; i < t; i++)  
     {  
         if (t % i == 0)  
             continue;  
@@ -90,21 +91,21 @@ void ce()
                 break;  
         }  
     }  
-}  
+    }  
   
-long int cd(long int x)  
-{  
-    long int k = 1;  
-    while (1)  
+    long int cd(long int x)  
+    {  
+      long int k = 1;  
+      while (1)  
     {  
         k = k + t;  
         if (k % x == 0)  
             return (k / x);  
     }  
-}  
+    }  
   
-void encrypt()  
-{  
+    void encrypt()  
+    {  
     long int pt, ct, key = e[0], k, len;  
     i = 0;  
     len = strlen(msg);  
@@ -127,10 +128,10 @@ void encrypt()
     printf("\nEncrypted message is:\n");  
     for (i = 0; en[i] != -1; i++)  
         printf("%c", (char)en[i]);  
-}  
+    }  
   
-void decrypt()  
-{  
+    void decrypt()  
+    {  
     long int pt, ct, key = d[0], k;  
         i = 0;  
     while (en[i] != -1)  
